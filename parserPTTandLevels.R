@@ -50,7 +50,7 @@ for( i in 1:length(alldata$date) )
   }
 }
 
-allDate = length(currentVector)
+allDate = currentVector$diffdate
 #allDate = levels(alldata$date)
 res = hist(as.numeric(alldata$date), nclass=length(allDate), axes=F, labels=T) 
 axis(1, at=1:length(allDate), labels=allDate)
