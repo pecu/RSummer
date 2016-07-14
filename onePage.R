@@ -1,11 +1,10 @@
-rm(list=ls(all=TRUE))
+﻿rm(list=ls(all=TRUE))
 # get html data
 library(XML)
 library(bitops)
 library(RCurl)
 library(NLP)
 library(httr)
-# 斷詞工具
 library(jiebaRD)
 library(jiebaR)       # 斷詞利器
 library(NLP)
@@ -14,7 +13,6 @@ library(slam)         # 稀疏矩陣運算
 library(RColorBrewer)
 library(wordcloud)    # 文字雲
 library(topicmodels)  # 主題模型
-library(igraph)       # 主題模型關聯
 
 Sys.setlocale("LC_ALL", "cht")
 
