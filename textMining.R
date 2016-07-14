@@ -15,9 +15,10 @@ library(slam)         # 稀疏矩陣運算
 library(RColorBrewer)
 library(wordcloud)    # 文字雲
 library(topicmodels)  # 主題模型
-library(igraph)       # 主題模型關聯
 
-orgPath = "./allText"
+Sys.setlocale("LC_ALL", "cht")
+
+orgPath = "./subText"
 text = Corpus(DirSource(orgPath), list(language = NA))
 text <- tm_map(text, removePunctuation)
 text <- tm_map(text, removeNumbers)
@@ -43,7 +44,8 @@ for( i in 1:length(totalSegment$result) )
 {
   for( j in 1:length(totaldiff) )
   {
-    if( totaldiff[j] == as.character(totalSegment$result[i]) )
+    if( nchar(totaldiff[j]) >= 2 &&
+        totaldiff[j] == as.character(totalSegment$result[i]) )
     {
       countMat[j,2] = countMat[j,2] + 1
     }
