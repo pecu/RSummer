@@ -53,7 +53,7 @@ SubWin_Samplers.Forward_Samplor = function (x.xts, SubWin_Size = 20, Events_Date
 ### try SubWin_Samplers.Forward_Samplor
 ######################################################################
 
-Xt = getSymbols("^SOX",from="2001-01-01",auto.assign = F)
+Xt = getSymbols("^TWII",from="2001-01-01",auto.assign = F)
 
 WinSize = 20
 sampleData = SubWin_Samplers.Forward_Samplor(x.xts=Cl(Xt),SubWin_Size=WinSize)
@@ -63,7 +63,7 @@ head(sampleData)
 ### Kmenas Clustering
 ######################################################################
 
-K_Centers = 5
+K_Centers = 7
 rawData = do.call(rbind,lapply(sampleData,function(xx) as.numeric(xx$ReturnSubWin)))
 model = kmeans(rawData,K_Centers,iter.max=50)
 
@@ -99,12 +99,13 @@ for (i in 2:K_Centers){
 ### DBSCAN Clustering
 ######################################################################
 
+install.packages("fpc")
 library("fpc")
 
 model = dbscan(rawData,eps = 0.15)
 model
 
-model <- pamk(rawData,krange=7:9,criterion="asw",critout=TRUE)
+model <- pamk(rawData,krange=3:5,criterion="asw",critout=TRUE)
 
 
 layout(as.matrix(cbind(2:(model$nc+1),2:(model$nc+1),1,1)))
