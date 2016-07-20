@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(shiny)\n\nshinyUI(fluidPage(\n\n  # Application title\n  titlePanel(\"Old Faithful Geyser Data\"),\n\n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      selectInput(\"select\", label = h3(\"Select box\"), \n                  choices = list(\"Choice 1\" = 1, \"Choice 2\" = 2,\n                                 \"Choice 3\" = 3), selected = 1),\n      \n      textInput(\"text\", label = h3(\"Text input\"), \n                value = \"Enter text...\"),\n    \n      sliderInput(\"bins\",\n                  \"Number of bins:\",\n                  min = 1,\n                  max = 50,\n                  value = 30)\n    ),\n\n    # Show a plot of the generated distribution\n    mainPanel(\n      plotOutput(\"PlotFiles\"),\n      textOutput(\"text1\"),\n      plotOutput(\"distPlot\")\n    )\n  )\n))\n",
+    "created" : 1469056594524.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1356348751",
+    "id" : "F8136FCB",
+    "lastKnownWriteTime" : 1469058499,
+    "last_content_update" : 1469058499158,
+    "path" : "C:/Users/pecu6/Desktop/NTU-CSX/R FinTech/code/ShinyProject/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
