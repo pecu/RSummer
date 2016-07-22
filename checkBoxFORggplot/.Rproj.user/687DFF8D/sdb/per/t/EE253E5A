@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(shiny)\nlibrary(ggplot2)\nsource(\"data.R\")\n\nshinyServer(function(input, output, session) {\n\n    selAll <- observeEvent(input$SelectAll, {\n      campaigns_list = as.character(c(1:length(allType)))\n      updateCheckboxGroupInput(session,\"checkGroup\", selected=campaigns_list)\n    })\n    \n    delALL <- observeEvent(input$DelAll, {\n      campaigns_list = rep(c(\"\"), length(allType))\n      updateCheckboxGroupInput(session,\"checkGroup\", selected=campaigns_list)\n    })\n    \n    output$checkBoxPlot <- renderPlot({\n      \n      i = as.numeric(input$checkGroup)\n      \n      index = c()\n      for( j in 1:length(i) )\n      {\n        compareString = paste0('category', i[j])\n        print(compareString)\n        index = rbind(index, which(as.character(df$variable) == compareString))\n      }\n      \n      print(index)\n      \n      #ggplot(data = df, aes(x=x, y=val)) + geom_line(aes(colour=variable))\n      ggplot(data = df[index,], aes(x=x, y=val)) + geom_line(aes(colour=variable))\n      \n    })\n})\n",
+    "created" : 1469191535105.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3117367931",
+    "id" : "EE253E5A",
+    "lastKnownWriteTime" : 1469197190,
+    "last_content_update" : 1469197190904,
+    "path" : "C:/Users/pecu6/Desktop/NTU-CSX/R FinTech/code/checkBox/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(plyr)\nlibrary(BBmisc)\n\nallType = 1:9\ndf <- data.frame(x=rep(1:5, 9), val=sample(1:100, 45), \n                 variable=rep(paste0(\"category\", 1:9), each=5))\nallCategory =count(df$variable)\ncheckboxList = convertRowsToList(\n  data.frame(as.factor(allType), allCategory$x))",
+    "created" : 1469193066802.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "513016202",
+    "id" : "71895EE4",
+    "lastKnownWriteTime" : 1469197036,
+    "last_content_update" : 1469197036718,
+    "path" : "C:/Users/pecu6/Desktop/NTU-CSX/R FinTech/code/checkBox/data.R",
+    "project_path" : "data.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
